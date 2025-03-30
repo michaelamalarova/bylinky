@@ -24,5 +24,8 @@ const seedDB = async () => {
 };
 
 mongoose.connect(dbUrl)
-  .then(() => console.log('Connected to MongoDB'))
+  .then(() => {
+    seedDB();
+    console.log(`Connected to MongoDB: ${dbUrl}`);
+  })
   .catch(err => console.error('MongoDB connection error:', err));

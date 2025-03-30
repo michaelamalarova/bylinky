@@ -25,7 +25,7 @@ Routing umožňuje definovat různé cesty (URLs) a metody HTTP (GET, POST, PUT,
 */
 
 //Připojí se k databázi MongoDB běžící na kontejneru mongo (definovaném v docker-compose.yml) na portu 27017 a používá databázi s názvem sberatel
-const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/sberatel';
+const mongoURL = process.env.DATABASE_URL || 'mongodb://localhost:27017/sberatel';
 mongoose.connect(mongoURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
