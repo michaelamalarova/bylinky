@@ -1,0 +1,105 @@
+Postup Implementace
+
+Nastavení vývojového prostředí:
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Inicializace frontendového a backendového projektu: (ini)
+        FE - web app
+        - react
+        - npx create-react-app
+
+        - Axios je populární JavaScriptová knihovna pro provádění HTTP požadavků. 
+        Umožňuje vám snadno posílat požadavky na server (např. GET, POST, PUT, DELETE) 
+        a zpracovávat odpovědi. Axios je založen na promise-based architektuře, 
+        což usnadňuje práci s asynchronními operacemi.
+
+
+        FE - mobile app
+        - React Native CLI - umožňuje vytváření nativních mobilních aplikací pomocí JavaScriptu a Reactu
+        
+        
+        - npx - umožňuje snadné spouštění balíčků Node.js bez nutnosti je globálně instalovat. 
+        npx se hodí pro jednorázové použití balíčků a skriptů přímo z příkazového řádku
+        nemusíte mít nainstalovaný React Native CLI globálně. npx se postará o stažení a spuštění nejnovější verze CLI přímo z npm registru
+
+        Backend
+        - npm: npm init -y
+
+        - Node.js a npm (Node Package Manager)
+            runtime prostředí, platforma/nastroj pro server-side vývoj, která umožňuje spouštění JavaScriptu mimo webový prohlížeč. 
+            Node.js je postaven na V8, což je JavaScript engine používaný v prohlížeči Google Chrome
+            Asynchronní a událostmi řízená architektura - pusti operaci a nez ta se nacte, tak dela neco jineho
+
+        - Express.js 
+            - Express.js je minimalistický webový framework pro Node.js
+            - poskytuje sadu nástrojů pro vývoj webových a mobilních aplikací, správu HTTP požadavků a odpovědí
+            - většina dalších funkcí je k dispozici prostřednictvím middleware, ktery můžete přidávat pomocí app.use()
+            - výkonný systém routování - mapování HTTP metod (GET, POST, PUT, DELETE, atd.) na konkrétní cesty a funkce
+            - usnadňuje vytváření dynamických HTML stránek na serveru.
+
+        Mongoose - databáze
+
+        Body-Parser - middleware pro Express.js, který zpracovává příchozí požadavky s JSON payloady
+
+pusteni aplikace
+    Frontendové aplikace často nemají tak složité závislosti jako backendové aplikace, takže izolace pomocí Dockeru není tak kritická.
+    be: docker-compose up
+    fe: npm start
+
+    Postup
+    - Stáhněte a nainstalujte Node.js
+
+    fe mobil: 
+    - npx react-native init fe - vytvoří nový React Native projekt
+    
+    fe:
+    - npx create-react-app .
+    - npm install axios
+
+    be: 
+    - npm init -y - Inicializujte projekt pomocí npm, což vytvoří soubor package.json
+
+    - npm install express mongoose body-parser - Nainstalujte Express.js, Mongoose a body-parser
+    
+    - Vytvořte základní soubor serveru: server.js
+
+    - Vytvoření Dockerfile a Docker Compose pro oba projekty.
+    Kontejnery umožňují balit aplikace spolu se všemi jejich závislostmi a konfiguracemi do jednoho balíčku, 
+    který může být snadno přesunut mezi různými prostředími (vývoj, testování, produkce)
+
+    - Docker Compose je nástroj pro definování a spuštění multi-kontejnerových Docker aplikací. 
+    Používá soubor docker-compose.yml k definování služeb, které tvoří vaši aplikaci
+
+        Postup
+        - vytvorit dockerfile pro fe i be a dat do nich pokyny pro docker, viz soubor
+        - vytvorit docker-compose.yml 
+        - docker-compose up - prikaz, nvm ted co dela TODO
+
+nastaveni zakladniho souboru server.js, routovaci soubory a api soubory
+
+Implementace základní funkcionality:
+
+Vytvoření REST API pro CRUD operace s informacemi o ovoci, recepty a uživatelská data.
+Implementace frontendových komponent pro skenování, zobrazení informací, recepty a komunitní funkce.
+Integrace Machine Learning:
+
+Vytvoření modelu pro identifikaci ovoce pomocí TensorFlow.js nebo PyTorch.
+Integrace modelu do backendu.
+Testování:
+
+Napsání unit testů pro backend.
+Vytvoření end-to-end testů pro frontend pomocí Cypress.
+Nastavení CI/CD:
+
+Vytvoření GitHub Actions workflow pro automatické testování a deployment.
+Kontejnerizace a nasazení:
+
+Vytvoření Docker image a nasazení na Heroku nebo AWS/Azure.
+Volitelné: Nasazení do Kubernetes clusteru.
+Personalizace a notifikace:
+
+Implementace personalizovaných doporučení na základě uživatelských preferencí a historie.
+Nastavení notifikací pro sezónní ovoce a další relevantní informace.
+Komunitní funkce:
+
+Umožnění uživatelům sdílet své recepty a zkušenosti s komunitou.

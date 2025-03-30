@@ -1,0 +1,73 @@
+todo extra feature - houby, v normalni mape muze byt kde jake druhy a pak treba cervena ikonka "Rostou!" ktera bude validni jen ten rok co se pridala a budou ji tam lidi davat kdyz najdou
+
+Specifikace aplikace na bylinky a ovoce
+
+Hlavní funkce aplikace:
+
+Mapa:
+
+Umožňuje přidání lokace výskytu bylinky nebo ovoce.
+Možnost filtrování podle měsíce, aby se zobrazilo jen to, co se sbírá v daný měsíc.
+Záznamy budou mít hodnocení (rank) založené na potvrzeních uživatelů (lajky/dislajky).
+Záznamům se bude snižovat rank, pokud nebudou potvrzeny po určitou dobu (např. tři roky).
+Seznam rostlin:
+
+Výběr ze seznamu bylin a ovoce.
+Zobrazení období sběru pro každou rostlinu.
+Možnost filtrování podle účinků.
+Detail rostliny s popisem, použitím, způsobem sběru, uchováním a recepty.
+Interakce uživatelů:
+
+Uživatelé mohou přidávat lajky nebo dislajky k záznamům na mapě.
+Na mapě lze zobrazit pouze rostliny s určitým hodnocením.
+Detailní funkce:
+
+Detail rostliny:
+Popis rostliny.
+Informace o tom, na co se používá.
+Jak se sbírá a jak se uchovává.
+Recepty a využití rostliny.
+Proklik z mapy na detail rostliny.
+První kroky:
+
+Dashboard:
+Vytvoření základního dashboardu.
+Implementace mapy na dashboardu.
+Další kroky:
+
+Implementace filtrování na mapě.
+Přidání seznamu rostlin s možností filtrování.
+Vytvoření detailních stránek rostlin.
+Implementace systému hodnocení a potvrzování záznamů.
+Toto je stručný přehled funkcí a kroků pro vytvoření aplikace. Jaké konkrétní kroky bychom měli podniknout nyní?
+
+nemas naky napad jak udelat tu logiku pridavani zaznamu jakoby aby sme omezili spam a nevalidni zaznamy proste aby tam nebyly rostliny co tam realne neroustou?
+ChatGPT
+Ano, je několik strategií, jak zajistit, aby přidané záznamy byly co nejvíce validní a omezily se neplatné záznamy. Zde je několik návrhů:
+
+Systém hodnocení uživateli:
+
+Lajky a dislajky: Uživatelé mohou přidávat lajky nebo dislajky k záznamům. Pokud záznam obdrží určité množství dislajků, jeho hodnocení se sníží.
+Komentáře: Uživatelé mohou přidávat komentáře k záznamům, aby ostatní mohli vidět jejich zkušenosti a poznámky k místu.
+Automatické snižování hodnocení:
+
+Časové omezení: Záznamům, které nebyly potvrzeny po určitou dobu (např. tři roky), se automaticky sníží hodnocení.
+Počet potvrzení: Záznamy musí být potvrzeny určitým počtem uživatelů, než budou považovány za platné.
+Moderace:
+
+Manuální schvalování: Nové záznamy mohou být schvalovány moderátory nebo správci aplikace před jejich zveřejněním.
+Automatická kontrola: Implementace automatických algoritmů, které budou kontrolovat validitu záznamů na základě různých kritérií (např. geografické umístění, sezónní období).
+Ověření lokace:
+
+Geografické omezení: Omezení možnosti přidání záznamů pouze na určité oblasti, kde je pravděpodobné, že dané rostliny skutečně rostou.
+Sezónní období: Omezení přidávání záznamů na základě sezóny, ve které je možné dané rostliny sbírat.
+Gamifikace:
+
+Odměny za správné záznamy: Uživatelé mohou získávat body nebo odznaky za přidání validních a užitečných záznamů.
+Penalizace za špatné záznamy: Uživatelé, kteří přidávají neplatné nebo spamové záznamy, mohou být penalizováni (např. ztráta bodů nebo dočasný zákaz přidávání záznamů).
+Uživatelské profily:
+
+Důvěryhodnost uživatelů: Uživatelé mohou mít profil s hodnocením, které se zvyšuje nebo snižuje na základě jejich aktivit a potvrzení záznamů. Vyšší hodnocení zajišťuje vyšší důvěryhodnost záznamů.
+Data z třetích stran:
+
+Integrace s externími databázemi: Použití externích databází a zdrojů, které mohou poskytovat informace o výskytu rostlin a jejich sezónách.

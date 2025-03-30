@@ -1,0 +1,42 @@
+# host_port: Port na vašem lokálním počítači (hostiteli), který bude mapován na port v Docker kontejneru.
+# container_port: Port v Docker kontejneru, na kterém aplikace běží.
+
+# Porty uvnitř kontejnerů mohou být stejné, protože kontejnery běží izolovaně od sebe. 
+# Každý kontejner má svůj vlastní síťový prostor, takže port 3000 v kontejneru pro backend a port 3000 
+# v kontejneru pro frontend jsou oddělené a nezávislé.
+
+version: '3'
+services:
+  backend:
+    build: ./be
+    volumes:
+      - ./be:/usr/src/app
+      - /usr/src/app/node_modules
+    # host_port:container_port
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URL: mongodb://mongo:27017/sberatel
+      NODE_ENV: development
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./fe
+    volumes:
+      - ./fe:/app
+      - /app/node_modules
+    # host_port:container_port
+    ports:
+      - "8081:3000"
+    # Chokidar je knihovna používaná Create React App (CRA) a dalšími nástroji pro sledování změn v souborech.
+    # CHOKIDAR_USEPOLLING=true nutí Chokidar k použití "pollingu" místo notifikací. Polling pravidelně kontroluje změny souborů, což je méně efektivní, ale spolehlivější
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
