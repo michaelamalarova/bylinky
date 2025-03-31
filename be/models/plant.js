@@ -5,7 +5,7 @@
 //Model poskytuje rozhraní pro interakci s databází, umožňující snadné vytváření, čtení, aktualizaci a mazání dokumentů (CRUD operace).
 //modelu muze byt vic, treba model user atd
 
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); 
 
 const plantSchema = new mongoose.Schema({
   name: String,
