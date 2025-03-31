@@ -1,0 +1,36 @@
+/* Resetuje margin a padding pro všechny elementy na stránce */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Zahrnuje výplně a okraje do celkové šířky a výšky elementu */
+}
+
+/* Nastaví základní styl pro tělo dokumentu */
+body {
+  font-family: Arial, sans-serif; /* Nastaví písmo pro text na Arial nebo výchozí sans-serif */
+  line-height: 1.6; /* Nastaví výšku řádku pro lepší čitelnost textu */
+  background-color: #f4f4f4; /* Nastaví barvu pozadí na světle šedou */
+}
+
+/* Styluje kontejner aplikace */
+.container {
+  max-width: 1200px; /* Nastaví maximální šířku kontejneru na 1200px */
+  margin: 0 auto; /* Vycentruje kontejner horizontálně */
+  padding: 20px; /* Přidá výplň 20px kolem obsahu */
+}
+
+/* Styluje základní hlavičky (h1, h2, h3, ...) */
+h1, h2, h3 {
+  margin-bottom: 10px; /* Přidá spodní okraj 10px pro hlavičky */
+}
+
+/* Styluje odstavce */
+p {
+  margin-bottom: 10px; /* Přidá spodní okraj 10px pro odstavce */
+}
+
+button, a {
+  cursor: pointer; /* Ukazatel myši při přejetí */
+}
+
+

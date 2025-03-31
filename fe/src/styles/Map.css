@@ -1,0 +1,26 @@
+.leaflet-popup-content-wrapper {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(116, 120, 114);
+  /* Nastaví barvu pozadí na zelenou */
+  background-image: url('../../public/images/flower-pattern.jpg');
+  /* URL k vašemu obrázku */
+  background-repeat: no-repeat;
+  /* Zabrání opakování obrázku */
+}
+
+.leaflet-popup-content {
+  min-width: 200px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.popup-detail {
+  background-color: white;
+  padding: 20px
+}
+
+.form {
+  width: 100%;
+  /* Roztáhne formulář na celou šířku */
+  height: 100%;
+  /* Roztáhne na celou výšku */
+}

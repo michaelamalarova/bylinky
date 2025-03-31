@@ -1,0 +1,15 @@
+main {
+  padding: 20px; /* Vnitřní odsazení hlavního obsahu */
+  margin: 20px auto; /* Nastaví automatické okraje pro centrování */
+  background-color: white; /* Nastaví barvu pozadí */
+  border-radius: 8px; /* Přidá zaoblené rohy */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidá stín pro vzhled kartičky */
+  max-width: 800px; /* Nastaví maximální šířku */
+}
+
+body {
+  padding-top: 65px; /* Odsazení pro navigační panel */
+  margin: 0; /* Resetuje výchozí marže */
+  font-family: Arial, sans-serif; /* Nastaví globální písmo */
+  background-color: #f4f4f4; /* Nastaví pozadí pro celou stránku */
+}
