@@ -10,7 +10,7 @@ const AddRecord = ({ marker, onSave }) => {
     const fetchPlants = async () => {
       try {
         console.log('Fetching plants');
-        const response = await axios.get('http://localhost:3000/api/plants');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/plants`);
         setPlants(response.data);
         console.log('Plants fetched:', response.data);
       } catch (error) {
@@ -30,7 +30,7 @@ const AddRecord = ({ marker, onSave }) => {
         latitude: marker.lat,
         longitude: marker.lng,
       };
-      await axios.post('http://localhost:3000/api/records', newRecord);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/records`, newRecord);
       onSave();
       alert('Record saved successfully');
     } catch (error) {

@@ -74,7 +74,7 @@ const MarkerWithPopupForm = ({ marker, plants, selectedPlant, setSelectedPlant, 
   }, []);
 
   const saveMarker = async () => {
-    const response = await fetch('http://localhost:3000/api/records', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/records`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ lat: marker.lat, lng: marker.lng, plant: { _id: selectedPlant._id, name: selectedPlant.name } }),

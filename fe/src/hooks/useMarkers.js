@@ -7,7 +7,7 @@ export const useMarkers = () => {
   useEffect(() => {
     const fetchPlants = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/plants');
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/plants`);
         if (!res.ok) throw new Error('Chyba při načítání rostlin');
         const data = await res.json();
         setPlants(data);
@@ -21,7 +21,7 @@ export const useMarkers = () => {
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/records');
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/records`);
         if (!res.ok) throw new Error('Chyba při načítání markerů');
         const data = await res.json();
         setMarkers(data);
