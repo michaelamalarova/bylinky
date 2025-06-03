@@ -67,7 +67,7 @@ i18n.use(initReactI18next).init({
           profile: "Profil",
         },
         home: {
-          title: 'Domovská stránka',
+          title: 'Domovská stránkaaaaa',
           welcomeMessage: 'Vítejte v naší aplikaci pro sběr bylin a ovoce!',
         },
         about: {

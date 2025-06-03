@@ -1,8 +1,23 @@
 import { useState, useEffect } from 'react';
 
+export type MarkerData = {
+  id: number;
+  lat: number;
+  lng: number;
+  plant: {
+    _id: string;
+    name: string;
+  } | null;
+};
+
+export type Plant = {
+  _id: string;
+  name: string;
+};
+
 export const useMarkers = () => {
-  const [markers, setMarkers] = useState([]);
-  const [plants, setPlants] = useState([]);
+  const [markers, setMarkers] = useState<MarkerData[]>([]);
+  const [plants, setPlants] = useState<Plant[]>([]);
 
   useEffect(() => {
     const fetchPlants = async () => {

@@ -1,5 +1,3 @@
-// src/pages/Home.js
-import React from 'react';
 import Layout from '../components/Layout';
 import Map from '../components/Map';
 import { useTranslation } from 'react-i18next';
