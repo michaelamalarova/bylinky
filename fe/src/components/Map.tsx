@@ -5,7 +5,17 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import '../styles/Map.css'
-import { useMarkers } from '../hooks/useMarkers';
+import { useMarkers, MarkerData, Plant } from '../hooks/useMarkers';
+
+type MarkerWithPopupFormProps = {
+  marker: MarkerData;
+  plants: Plant[];
+  selectedPlant: Plant | null;
+  setSelectedPlant: React.Dispatch<React.SetStateAction<Plant | null>>;
+  setMarkers: React.Dispatch<React.SetStateAction<MarkerData[]>>;
+  setNewMarker: React.Dispatch<React.SetStateAction<MarkerData | null>>;
+  setOpenDetail: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 const defaultIcon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -18,8 +28,8 @@ const defaultIcon = L.icon({
 
 const Map = () => {
   const { markers, setMarkers, plants } = useMarkers();
-  const [newMarker, setNewMarker] = useState(null);
-  const [selectedPlant, setSelectedPlant] = useState('');
+  const [newMarker, setNewMarker] = useState<MarkerData | null>(null);
+  const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
   const [openDetail, setOpenDetail] = useState(false);
 
   const AddMarker = () => {
@@ -48,7 +58,6 @@ const Map = () => {
         <MarkerWithPopupDetail
           marker={marker}
           openDetail={openDetail}
-          setOpenDetail={setOpenDetail}
         />
       ))}
       {newMarker &&
@@ -65,15 +74,24 @@ const Map = () => {
   );
 };
 
-const MarkerWithPopupForm = ({ marker, plants, selectedPlant, setSelectedPlant, setMarkers, setNewMarker, setOpenDetail }) => {
-  const markerRef = useRef(null);
+const MarkerWithPopupForm: React.FC<MarkerWithPopupFormProps> = ({
+  marker, plants, selectedPlant, setSelectedPlant, setMarkers, setNewMarker, setOpenDetail
+}) => {
+  const markerRef = useRef<L.Marker | null>(null);
 
   useEffect(() => {
-    markerRef.current.openPopup();
-
+    if (markerRef.current) {
+      markerRef.current.openPopup();
+    }  
   }, []);
 
   const saveMarker = async () => {
+
+    if (!selectedPlant) {
+      console.error('Není vybraná rostlina!');
+      return;
+    }
+
     const response = await fetch(`${process.env.REACT_APP_API_URL}/api/records`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -128,18 +146,31 @@ const MarkerWithPopupForm = ({ marker, plants, selectedPlant, setSelectedPlant, 
   );
 };
 
-const MarkerWithPopupDetail = ({ marker, openDetail, setOpenDetail }) => {
-  const markerRef = useRef(null);
+type MarkerWithPopupDetailProps = {
+  marker: MarkerData;
+  openDetail: boolean;
+};
 
+const MarkerWithPopupDetail: React.FC<MarkerWithPopupDetailProps> = ({
+  marker,
+  openDetail,
+}) => {
+  const markerRef = useRef<L.Marker | null>(null);
+
+  // for opening popup after adding new record
   useEffect(() => {
-    if (openDetail) {
+    if (openDetail && markerRef.current) {
+      const popup = markerRef.current.getPopup();
+      if (popup) {
+        popup.options.autoPan = false;
+      }
       markerRef.current.openPopup();
     }
   }, [openDetail]);
 
   return (
     <Marker key={marker.id} position={[marker.lat, marker.lng]} icon={defaultIcon} ref={markerRef}>
-      <Popup onClose={setOpenDetail(false)}>
+      <Popup>
         <div className='popup-detail'>
           <h2>{marker.plant ? marker.plant.name : "stary zaznam Žádná rostlina"}</h2>
           <p>blaaa blaaa blaaa</p>
