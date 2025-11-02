@@ -18,4 +18,4 @@ RUN npm install cors
 # Otevřete port 3000
 EXPOSE 3000
 
-CMD [ "npm", "run", "start.dev" ]
+CMD ["node", "server.js"]  
