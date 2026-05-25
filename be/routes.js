@@ -30,9 +30,9 @@ router.put('/profile', authMiddleware, userController.updateUserProfile);
 // Routes for records
 router.post('/records', recordController.createRecord);
 router.get('/records', recordController.getAllRecords);
-router.get('/records:id', recordController.getRecordById);
-router.put('/records:id', recordController.updateRecord);
-router.delete('/records:id', recordController.deleteRecord);
-router.post('/records:id/like', recordController.likeRecord);
+router.get('/records/:id', recordController.getRecordById);
+router.put('/records/:id', recordController.updateRecord);
+router.delete('/records/:id', recordController.deleteRecord);
+router.post('/records/:id/like', recordController.likeRecord);
 
 module.exports = router;

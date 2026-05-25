@@ -1,17 +1,31 @@
+import type { ReactNode } from 'react';
 import Navbar from './Navbar'
 import '../styles/Layout.css'
 
 type LayoutProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const Layout = ({ children } : LayoutProps ) => {
+    const sidebarItems = ['Mapa', 'Seznam bylin', 'Oleje', 'Parfémy', 'Tinktury', 'Čaje'];
+
     return (
       <>
         <Navbar/>
-        <main>
-            {children}
-        </main>
+        <div className="page-shell">
+          <aside className="sidebar" aria-label="Kategorie">
+            <ul className="sidebar-list">
+              {sidebarItems.map((item) => (
+                <li key={item} className={`sidebar-item ${item === 'Mapa' ? 'active' : ''}`}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </aside>
+          <main>
+              {children}
+          </main>
+        </div>
       </>
     );
   };

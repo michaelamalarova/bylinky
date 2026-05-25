@@ -16,7 +16,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      MONGO_URL: mongodb://mongo:27017/sberatel
+      DATABASE_URL: mongodb://mongo:27017/sberatel
+      #MONGO_URL: mongodb://mongo:27017/sberatel
       NODE_ENV: development
     depends_on:
       - mongo
@@ -33,6 +34,10 @@ services:
     # CHOKIDAR_USEPOLLING=true nutí Chokidar k použití "pollingu" místo notifikací. Polling pravidelně kontroluje změny souborů, což je méně efektivní, ale spolehlivější
     environment:
       - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - HOST=0.0.0.0
+      - WDS_SOCKET_HOST=localhost
+      - WDS_SOCKET_PORT=8081
     depends_on:
       - backend
 

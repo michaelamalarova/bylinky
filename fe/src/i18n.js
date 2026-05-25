@@ -19,7 +19,7 @@ i18n.use(initReactI18next).init({
           profile: "Profile",
         },
         home: {
-          title: 'Home Page',
+          title: 'Map of public harvest spots',
           welcomeMessage: 'Welcome to our herb and fruit app!',
         },
         about: {
@@ -67,7 +67,7 @@ i18n.use(initReactI18next).init({
           profile: "Profil",
         },
         home: {
-          title: 'Domovská stránkaaaaa',
+          title: 'Mapa veřejných míst sběru',
           welcomeMessage: 'Vítejte v naší aplikaci pro sběr bylin a ovoce!',
         },
         about: {

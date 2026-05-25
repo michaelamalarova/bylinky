@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Layout from '../components/Layout';
-//import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 
 const RegisterPage = () => {
@@ -12,10 +12,9 @@ const RegisterPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      //const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/register`, { email, password });
-      window.location.href = '/login'; // Přesměrování na přihlašovací stránku po úspěšné registraci
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/register`, { email, password });
+      window.location.href = '/login';
     } catch (error) {
-        console.log(error)
       setError('Registration failed. Please try again.');
     }
   };

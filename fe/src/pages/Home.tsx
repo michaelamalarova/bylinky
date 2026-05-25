@@ -8,8 +8,9 @@ const Home = () => {
 
   return (
     <Layout>
-      <h1>{t('home.title')}</h1>
-      <p>{t('home.welcomeMessage')}</p>
+      <div className="page-heading">
+        <h1>{t('home.title')}</h1>
+      </div>
       <Map />
     </Layout>
   );

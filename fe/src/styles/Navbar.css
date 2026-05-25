@@ -1,13 +1,18 @@
 /* Nastaví styl pro navigační panel */
 .navbar {
-    background-color: rgb(63, 119, 63); /* Nastaví barvu pozadí na zelenou */
-    padding: 10px; /* Přidá výplň 10px kolem obsahu */
+    background-color: rgb(13, 36, 22); /* Nastaví barvu pozadí na zelenou */
+    padding: 6px 10px; /* Přidá výplň 10px kolem obsahu */
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     width: 100%; /* Roztáhne navigační panel na celou šířku */
     position: fixed; /* Upevní navigační panel na vrcholu stránky */
     top: 0; /* Umístí navigační panel na vrchol stránky */
     left: 0; /* Umístí navigační panel na levý okraj stránky */
     box-sizing: border-box; /* Zahrne výplně a okraje do celkové šířky a výšky */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.418); /* Stín pro vzhled dialogu */
+    box-shadow:
+      inset 0 14px 22px rgba(0, 0, 0, 0.28),
+      inset 0 -10px 18px rgba(255, 255, 255, 0.05),
+      0 4px 8px rgba(0, 0, 0, 0.418); /* Stín pro vzhled dialogu */
     z-index: 1001; /* Nastaví z-index, aby se panel zobrazoval nad ostatními prvky */
   }
   
@@ -20,8 +25,8 @@
   
   /* Nastaví styl pro logo v navigačním panelu */
   .logo {
-    color: white; /* Nastaví barvu textu na bílou */
-    font-size: 24px; /* Nastaví velikost písma na 24px */
+    color: #cfd9c3; /* Nastaví barvu textu na bílou */
+    font-size: 21px; /* Nastaví velikost písma na 24px */
     font-weight: bold; /* Nastaví písmo na tučné */
   }
   
@@ -33,27 +38,29 @@
   
   /* Nastaví základní styl pro odkazy v navigačním panelu */
   .nav-links a {
-    color: white; /* Nastaví barvu textu na bílou */
+    color: #cfd9c3; /* Nastaví barvu textu na bílou */
     text-decoration: none; /* Odstraní podtržení textu */
-    font-size: 18px; /* Nastaví velikost písma na 18px */
-    text-shadow: 0px 0px 2.5px rgba(255, 255, 255, 0.3); /* Přidá stín textu */
+    font-size: 16px; /* Nastaví velikost písma na 18px */
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.42); /* Přidá stín textu */
   }
   
 
 .logout-button {
-  color: black; /* Barva textu na zelenou */
+  color: #cfd9c3; /* Barva textu na zelenou */
   box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.3); /* offset-x offset-y blur-radius spread-radius color; */ 
   border: none;
   border-radius: 1.5px; /* Zaoblené rohy */
-  font-size: 18px; /* Velikost písma 18px */
+  font-size: 16px; /* Velikost písma 18px */
   text-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.3); /* Přidá stín textu */
-  background-color: rgb(148, 176, 146); /* Barva pozadí na bílou */
-  padding: 5px; /* Vnitřní odsazení tlačítka */
+  background-color: rgb(5, 19, 11); /* Barva pozadí na bílou */
+  padding: 3px 13px; /* Vnitřní odsazení tlačítka */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
   
 .logout-button:hover {
-  background-color: rgb(41, 77, 41); /* Barva pozadí na zelenou při přejetí myší */
-  color: white; /* Barva textu na bílou při přejetí myší */
+  background-color: rgb(3, 13, 7); /* Barva pozadí na zelenou při přejetí myší */
+  color: #cfd9c3; /* Barva textu na bílou při přejetí myší */
   text-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.3); /* Přidá stín textu */
 }
 
@@ -97,7 +104,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.418); /* Stín pro vzhled dialogu */
   position: fixed; /* Pevné umístění dialogového okna */
   margin-left: auto;
-  top: 59px; /* Umístění pod navigačním panelem */
+  top: 45px; /* Umístění pod navigačním panelem */
   box-sizing: border-box; /* Zahrne výplně a okraje do celkové šířky a výšky */
   z-index: 1002; /* Z-index nad navigačním panelem */
   border: none; /* Odstraní okraj dialogového okna */
@@ -106,7 +113,7 @@
 
 .logout-button-dialog,
 .nav-dialog-links a {
-  color: black; /* Barva textu na zelenou */
+  color: #cfd9c3; /* Barva textu na zelenou */
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3); /* Stín pro vzhled dialogu */
   border: none;
   border-radius: 1.5px; /* Zaoblené rohy */
@@ -115,14 +122,16 @@
 }
   /* Styl pro tlačítko Logout */
   .logout-button-dialog {
-    background-color: rgb(148, 176, 146); /* Barva pozadí na bílou */
+    background-color: rgb(5, 19, 11); /* Barva pozadí na bílou */
     padding: 10px; /* Vnitřní odsazení tlačítka */
     margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
   
   .logout-button-dialog:hover {
-    background-color: rgb(63, 119, 63); /* Barva pozadí na zelenou při přejetí myší */
-    color: white; /* Barva textu na bílou při přejetí myší */
+    background-color: rgb(3, 13, 7); /* Barva pozadí na zelenou při přejetí myší */
+    color: #cfd9c3; /* Barva textu na bílou při přejetí myší */
     text-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.3); /* Přidá stín textu */
   }
 
@@ -162,7 +171,7 @@
 @media (max-width: 600px) {
   .nav-dialog {
     width: 100%; /* Šířka dialogového okna pro velmi malé obrazovky */
-    top: 50px;
+    top: 45px;
     right: 0;
   }
 }
